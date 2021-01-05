@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Form from '../components/Form';
 import List from '../components/List';
 
 const data = [
@@ -10,11 +11,20 @@ const data = [
     },
 ];
 
-const App = ({ title }) => (
-    <div className='p-6'>
-        <h1 className='mb-6 text-3xl font-bold text-center'>{title}</h1>
-        <List data={data} />
-    </div>
-);
+class App extends Component {
+    state = {
+        profiles: data,
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>{this.props.title}</h1>
+                <Form />
+                <List profiles={this.state.profiles} />
+            </div>
+        );
+    }
+}
 
 export default App;

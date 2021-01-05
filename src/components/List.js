@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from './Card';
 
-const List = ({ data }) => {
+const List = ({ profiles }) => {
     return (
         <div>
             <ul>
-                {data.map((user) => (
+                {profiles.map((user) => (
                     <Card key={user.id} name={user.name} avatar_url={user.avatar_url} company={user.company} />
                 ))}
             </ul>
