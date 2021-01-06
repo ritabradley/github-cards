@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Card = ({ avatar_url = 'http://placeskull.com/75/75', name = 'Rita Bradley', company = 'Some Company' }) => {
+const Card = ({ avatar_url, name, company }) => {
     return (
-        <div>
-            <img src={avatar_url} alt='placeholder img' />
+        <div className='flex py-6  space-x-2'>
+            <img className='w-28 h-28 rounded-md' src={avatar_url} alt='placeholder img' />
             <div>
                 <p>{name}</p>
-                <p>{company}</p>
+                <p>
+                    <em>{company}</em>
+                </p>
             </div>
         </div>
     );

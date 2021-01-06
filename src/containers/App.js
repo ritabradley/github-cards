@@ -2,25 +2,20 @@ import React, { Component } from 'react';
 import Form from '../components/Form';
 import List from '../components/List';
 
-const data = [
-    { name: 'Rita Bradley', avatar_url: 'https://avatars3.githubusercontent.com/u/41173740?v=4', company: null },
-    {
-        name: 'Adam Wathan',
-        avatar_url: 'https://avatars2.githubusercontent.com/u/4323180?v=4',
-        company: 'Tailwind CSS',
-    },
-];
-
 class App extends Component {
     state = {
-        profiles: data,
+        profiles: [],
     };
-
+    addNewProfile = (profileData) => {
+        this.setState((prevState) => ({
+            profiles: [...prevState.profiles, profileData],
+        }));
+    };
     render() {
         return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <Form />
+            <div className='place-items-center grid p-10'>
+                <h1 className='mb-5 text-4xl font-bold'>{this.props.title}</h1>
+                <Form onSubmit={this.addNewProfile} />
                 <List profiles={this.state.profiles} />
             </div>
         );
